@@ -9,6 +9,8 @@ import PDFView from './pages/PDFView';
 import SharedPDF from './pages/SharedPDF';
 import ResetPassword from './pages/ResetPassword';
 import ProtectedRoute from './components/ProtectedRoute';
+import ForgotPassword from './pages/ForgotPassword';
+import UpdatePassword from './pages/UpdatePassword';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/update-password" element={<UpdatePassword />} />
             <Route path="/pdfs/shared/:token" element={<SharedPDF />} />
             <Route path="/" element={<ProtectedRoute />}>
               <Route index element={<Navigate to="/dashboard" replace />} />

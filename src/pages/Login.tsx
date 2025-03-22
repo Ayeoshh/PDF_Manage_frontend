@@ -45,7 +45,7 @@ const Login: React.FC = () => {
           <FileText className="mx-auto h-12 w-12 text-blue-600" />
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
           <p className="mt-2 text-sm text-gray-600">
-            Use demo@example.com / password to login
+            Enter email and password to login
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -80,9 +80,16 @@ const Login: React.FC = () => {
 
           <div className="flex items-center justify-between">
             <div className="text-sm">
-              <Link to="/reset-password" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link to="/forgot-password" className="font-medium text-blue-600 hover:text-blue-500">
                 Forgot your password?
               </Link>
+              <br />
+              <Link to="/update-password" className="font-medium text-blue-600 hover:text-blue-500">
+                Update Password
+              </Link>
+              {/* <Link to="/reset-password" className="font-medium text-blue-600 hover:text-blue-500">
+                Forgot your password?
+              </Link> */}
             </div>
             <div className="text-sm">
               <Link to="/signup" className="font-medium text-blue-600 hover:text-blue-500">

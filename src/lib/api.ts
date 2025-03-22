@@ -23,7 +23,9 @@ export const auth = {
   logout: () => api.post('/auth/logout'),
   resetPassword: (email: string) =>
     api.post('/auth/reset-password', { email }),
-  updatePassword: (data: { oldPassword: string; newPassword: string }) =>
+  updateResetPassword: (token: string, newPassword: string) =>
+    api.post('/auth/update-reset-password', { token, newPassword }),
+  updatePassword: (data: {userId: string ;oldPassword: string; newPassword: string }) =>
     api.post('/auth/update-password', data),
   me: () => api.get('/auth/me'),
 };
