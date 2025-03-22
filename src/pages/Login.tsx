@@ -16,27 +16,32 @@ const Login: React.FC = () => {
   const { login } = useAuth();
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<LoginForm>();
 
+
   const onSubmit = async (data: LoginForm) => {
     try {
-      const response = await auth.login(data);
-      const { token, user } = response.data;
-
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-
+      await login(data.email, data.password); // use the context method
       toast.success('Welcome back!');
       navigate('/dashboard');
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Invalid email or password');
     }
-    // try {
-    //   await login(data.email, data.password);
-    //   navigate('/dashboard');
-    //   toast.success('Welcome back!');
-    // } catch (error) {
-    //   toast.error('Invalid email or password');
-    // }
   };
+  
+
+  // const onSubmit = async (data: LoginForm) => {
+  //   try {
+  //     const response = await auth.login(data);
+  //     const { token, user } = response.data;
+
+  //     localStorage.setItem('token', token);
+  //     localStorage.setItem('user', JSON.stringify(user));
+
+  //     toast.success('Welcome back!');
+  //     navigate('/dashboard');
+  //   } catch (error: any) {
+  //     toast.error(error.response?.data?.message || 'Invalid email or password');
+  //   }
+  // };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
